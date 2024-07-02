@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <!--FUENTES-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>UX INTA</title>
+  </head>
+  <body>
+    <header>
+      <img src="./src/img/inta.jpg" alt="INTA Logo" />
+    </header>
+    <h1>Encuesta de satisfacción de servicio de asistencia IT</h1>
+    <div class="block-formulario">
+      <section class="formulario">
+        <form action="main.php" method="post">
+          <div class="form-group">
+            <label for="usuario">Usuario: (opcional)</label>
+            <input type="text" id="usuario" name="usuario" />
+          </div>
+          <hr />
+          <div class="form-group">
+            <label for="pertenencia">Dependencia:</label>
+            <select name="pertenencia" id="pertenencia" required>
+              <option value="AMBA">AMBA</option>
+              <option value="CIA">CIA</option>
+              <option value="CICVyA">CICVyA</option>
+              <option value="CIPAF">CIPAF</option>
+              <option value="CIRN">CIRN</option>
+              <option value="GLyS">Gerencia Log. y Ser.</option>
+              <option value="IB">Inst. Biotecnologia</option>
+              <option value="ICyA">Inst. Clima y Agua</option>
+              <option value="IGEAF">Inst. Genetica</option>
+              <option value="IF">Inst. Floricultura</option>
+              <option value="IIR">Inst. Ing. Rural</option>
+              <option value="IMYZA">IMYZA</option>
+              <option value="IP">Inst. Patobiologia</option>
+              <option value="IRB">Inst Recursos Biologicos</option>
+              <option value="IS">Inst. Suelos</option>
+              <option value="ITA">Inst. Tec. Alimentos</option>
+              <option value="IV">Inst. Virologia</option>
+            </select>
+          </div>
+          <hr />
+          <div class="form-group">
+            <label for="ticket">Número de Ticket: (opcional)</label>
+            <input type="text" id="ticket" name="ticket" />
+          </div>
+          <hr />
+          <div class="form-group">
+            <label for="tecnico">Técnico que intervino:</label>
+            <select name="tecnico" id="tecnico" required>
+              <option value="Dario H. Guaraz">Dario H. Guaraz</option>
+              <option value="Jorge Cayo">Jorge Cayo</option>
+              <option value="Julian Diodati">Julian Diodati</option>
+              <option value="Adriano Di Leo Lira">Adriano Di Leo Lira</option>
+              <option value="Daiana Diaz">Daiana Diaz</option>
+              <option value="Jorge Almandoz">Jorge Almandoz</option>
+            </select>
+          </div>
+          <hr />
+          <div class="form-group">
+            <label for="calidad-tiempo">Tiempo de Resolución (1-10):</label>
+            <select name="calidad-tiempo" id="calidad-tiempo" required>
+              <option value="10">10</option>
+              <option value="9">9</option>
+              <option value="8">8</option>
+              <option value="7">7</option>
+              <option value="6">6</option>
+              <option value="5">5</option>
+              <option value="4">4</option>
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="calidad-atencion">Calidad de Atención (1-10):</label>
+            <select name="calidad-atencion" id="calidad-atencion" required>
+              <option value="10">10</option>
+              <option value="9">9</option>
+              <option value="8">8</option>
+              <option value="7">7</option>
+              <option value="6">6</option>
+              <option value="5">5</option>
+              <option value="4">4</option>
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+            </select>
+          </div>
+          <hr />
+          <div class="form-group comentarios">
+            <label for="comentario">Comentarios: (opcional)</label>
+            <textarea id="comentario" name="comentario"></textarea>
+          </div>
+          <div class="boton-container">
+            <input type="submit" class="boton" value="Enviar" />
+          </div>
+        </form>
+      </section>
+    </div>
+    <footer>Instituto Nacional de Tecnologia Agropecuaria</footer>
+    <script src="./main.js"></script>
+  </body>
+</html>

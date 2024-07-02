@@ -1,0 +1,120 @@
+body {
+  background-image: url(./src/img/funda4.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  background-color: #fff;
+  padding: 10px;
+}
+
+header img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1 {
+  font-family: "Montserrat", sans-serif;
+  color: aliceblue;
+  text-align: center;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  font-size: 2em;
+  font-style: oblique;
+  margin-top: 20px;
+}
+
+.block-formulario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.formulario {
+  background-color: rgb(222, 234, 243);
+  border-radius: 20px;
+
+  padding: 30px;
+  border: 2px solid #000;
+  width: 100%;
+  max-width: 600px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: rgb(88, 86, 86);
+  font-size: 1.1em;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: calc(100% - 22px);
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+textarea {
+  border-radius: 10px;
+  height: 5rem;
+}
+
+.boton-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.boton {
+  background-color: rgb(26, 138, 212);
+  color: aliceblue;
+  font-size: large;
+  height: 50px;
+  width: 150px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+}
+
+footer {
+  background-color: rgba(28, 89, 160, 0.699);
+  font-family: "Roboto", sans-serif;
+  color: aliceblue;
+  padding: 10px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+  .formulario {
+    padding: 10px;
+  }
+
+  .form-group label {
+    font-size: 1em;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    font-size: 0.9em;
+  }
+
+  .boton {
+    font-size: medium;
+    height: 40px;
+    width: 120px;
+  }
+}
