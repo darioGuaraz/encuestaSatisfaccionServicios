@@ -24,7 +24,7 @@ header.shrink {
 
 header img {
   max-width: 100%;
-  border-radius: 20px; /* Opcional: para bordes redondeados */
+  border-radius: 700px; /* Opcional: para bordes redondeados */
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Ajusta el difuminado según tu preferencia */
   transition: box-shadow 0.3s ease; /* Para un efecto suave al pasar el ratón */
 }
@@ -46,7 +46,7 @@ header img:hover {
 
 .container-titulo h1 {
   font-family: Bebas Neue;
-  color: rgb(0, 0, 0);
+  color: rgb(60, 148, 207);
   text-align: center;
   font-size: 5vw;
   margin: 2px;
@@ -61,9 +61,11 @@ header img:hover {
 }
 
 .formulario {
-  background-color: rgb(210, 232, 248);
+  background-image: url(./src/img/background1.jpg);
+  background-color: rgba(210, 232, 248, 0.753);
   border-radius: 20px;
-  font-family: handjet;
+  text-align: center;
+  font-family: bebas neue;
   font-size: 25px;
   padding: 30px;
   border: 2px solid #0ebdd4c0;
@@ -71,6 +73,9 @@ header img:hover {
   max-width: 800px; /* Ajusta este valor según tus preferencias */
   box-sizing: border-box;
   margin: 0 auto; /* Centra el formulario en la pantalla */
+}
+label {
+  color: rgb(185, 11, 11);
 }
 
 .container-tkt-tecnico,
@@ -98,8 +103,8 @@ header img:hover {
 .form-group select {
   width: 100%; /* Ajusta el ancho al contenedor */
   padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  border-radius: 20px;
+  border: 1px solid #09b3d1;
   font-size: 1em;
   box-sizing: border-box;
 }
