@@ -1,3 +1,4 @@
+/*fonts*/
 body {
   background-image: url(./src/img/funda4.jpg);
   background-size: cover;
@@ -6,25 +7,50 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+/* Ajusta el CSS del header */
 header {
-  background-color: #fff;
+  background-color: #0b4763;
   padding: 10px;
+  transition: transform 0.3s ease, padding 0.3s ease; /* Añadido transform a la transición */
+  transform: translateY(0); /* Estado inicial */
+}
+
+header.shrink {
+  transform: translateY(
+    -60px
+  ); /* Ajusta el valor según la altura que quieras ocultar */
+  padding: 5px; /* Puedes ajustar este padding si es necesario */
 }
 
 header img {
   max-width: 100%;
-  height: auto;
+  border-radius: 20px; /* Opcional: para bordes redondeados */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Ajusta el difuminado según tu preferencia */
+  transition: box-shadow 0.3s ease; /* Para un efecto suave al pasar el ratón */
 }
 
-h1 {
-  font-family: "Montserrat", sans-serif;
-  color: aliceblue;
+header img:hover {
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.7); /* Efecto al pasar el ratón, opcional */
+}
+
+.container-header {
+  display: flex;
+  align-items: center;
+}
+.container-img {
+  flex: 30%;
+}
+.container-titulo {
+  flex: 70%;
+}
+
+.container-titulo h1 {
+  font-family: Bebas Neue;
+  color: rgb(0, 0, 0);
   text-align: center;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-    1px 1px 0 #000;
-  font-size: 2em;
-  font-style: oblique;
-  margin-top: 20px;
+  font-size: 5vw;
+  margin: 2px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.616);
 }
 
 .block-formulario {
@@ -35,18 +61,29 @@ h1 {
 }
 
 .formulario {
-  background-color: rgb(222, 234, 243);
+  background-color: rgb(210, 232, 248);
   border-radius: 20px;
-
+  font-family: handjet;
+  font-size: 25px;
   padding: 30px;
-  border: 2px solid #000;
+  border: 2px solid #0ebdd4c0;
   width: 100%;
-  max-width: 600px;
+  max-width: 800px; /* Ajusta este valor según tus preferencias */
+  box-sizing: border-box;
+  margin: 0 auto; /* Centra el formulario en la pantalla */
+}
+
+.container-tkt-tecnico,
+.container-test {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas más pequeñas */
+  gap: 10px; /* Espacio entre los elementos */
 }
 
 .form-group {
   margin-bottom: 15px;
   text-align: left;
+  flex: 1;
 }
 
 .form-group label {
@@ -59,7 +96,7 @@ h1 {
 .form-group input,
 .form-group textarea,
 .form-group select {
-  width: calc(100% - 22px);
+  width: 100%; /* Ajusta el ancho al contenedor */
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -69,7 +106,10 @@ h1 {
 
 textarea {
   border-radius: 10px;
-  height: 5rem;
+  height: auto; /* Para que el alto se ajuste automáticamente */
+  max-height: 300px; /* Ajusta el valor según tus necesidades */
+  overflow: hidden; /* Oculta el scrollbar si el contenido excede el tamaño */
+  resize: none; /* Desactiva el redimensionamiento manual */
 }
 
 .boton-container {
@@ -78,18 +118,17 @@ textarea {
 }
 
 .boton {
-  background-color: rgb(26, 138, 212);
-  color: aliceblue;
+  background-color: rgb(13, 184, 236);
+  color: rgb(255, 255, 255);
   font-size: large;
   height: 50px;
   width: 150px;
   border-radius: 25px;
-  border: none;
   cursor: pointer;
 }
 
 footer {
-  background-color: rgba(28, 89, 160, 0.699);
+  background-color: rgba(2, 32, 66, 0.699);
   font-family: "Roboto", sans-serif;
   color: aliceblue;
   padding: 10px;
@@ -97,9 +136,15 @@ footer {
   margin-top: 20px;
 }
 
+input,
+option {
+  font-size: 22px;
+}
+
 @media (max-width: 600px) {
   .formulario {
     padding: 10px;
+    max-width: 100%; /* Asegura que el formulario se ajuste completamente en pantallas pequeñas */
   }
 
   .form-group label {

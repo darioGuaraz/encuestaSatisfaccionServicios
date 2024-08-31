@@ -8,20 +8,29 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Bebas+Neue&family=Handjet:wght@100..900&display=swap"
       rel="stylesheet"
     />
-    <title>UX INTA</title>
+    <title>Encuesta Satisfaccion</title>
   </head>
   <body>
     <header>
-      <img src="./src/img/inta.jpg" alt="INTA Logo" />
+      <div class="container-header">
+        <div class="container-img">
+          <img src="./src/img/logo.png" alt="Logo" />
+        </div>
+        <div class="container-titulo">
+          <h1>Encuesta de satisfacción de servicio de asistencia IT</h1>
+        </div>
+      </div>
     </header>
-    <h1>Encuesta de satisfacción de servicio de asistencia IT</h1>
+
     <div class="block-formulario">
       <section class="formulario">
         <form action="main.php" method="post">
@@ -33,74 +42,81 @@
           <div class="form-group">
             <label for="pertenencia">Dependencia:</label>
             <select name="pertenencia" id="pertenencia" required>
-              <option value="AMBA">AMBA</option>
-              <option value="CIA">CIA</option>
-              <option value="CICVyA">CICVyA</option>
-              <option value="CIPAF">CIPAF</option>
-              <option value="CIRN">CIRN</option>
-              <option value="GLyS">Gerencia Log. y Ser.</option>
-              <option value="IB">Inst. Biotecnologia</option>
-              <option value="ICyA">Inst. Clima y Agua</option>
-              <option value="IGEAF">Inst. Genetica</option>
-              <option value="IF">Inst. Floricultura</option>
-              <option value="IIR">Inst. Ing. Rural</option>
-              <option value="IMYZA">IMYZA</option>
-              <option value="IP">Inst. Patobiologia</option>
-              <option value="IRB">Inst Recursos Biologicos</option>
-              <option value="IS">Inst. Suelos</option>
-              <option value="ITA">Inst. Tec. Alimentos</option>
-              <option value="IV">Inst. Virologia</option>
+              <option value="MKT">Marketing</option>
+              <option value="RRHH">Recursos Humanos</option>
+              <option value="FIN">Finanzas</option>
+              <option value="ING">Ingeniería</option>
+              <option value="OPS">Operaciones</option>
+              <option value="TI">Tecnología de la Información</option>
+              <option value="I+D">Investigación y Desarrollo</option>
+              <option value="CAL">Calidad</option>
+              <option value="VENTAS">Ventas</option>
+              <option value="RRPP">Relaciones Públicas</option>
+              <option value="LOG">Logística</option>
+              <option value="ADM">Administración</option>
+              <option value="ATC">Atención al Cliente</option>
+              <option value="LEGAL">Legal</option>
+              <option value="SEG">Seguridad</option>
+              <option value="PROD">Producción</option>
+              <option value="CAP">Capacitación</option>
             </select>
           </div>
           <hr />
-          <div class="form-group">
-            <label for="ticket">Número de Ticket: (opcional)</label>
-            <input type="text" id="ticket" name="ticket" />
-          </div>
-          <hr />
-          <div class="form-group">
-            <label for="tecnico">Técnico que intervino:</label>
-            <select name="tecnico" id="tecnico" required>
-              <option value="tecnico 1">nombre de tecnico 1</option>
-              <option value="tecnico 2">nombre de tecnico 2</option>
-              <option value="tecnico 3">nombre de tecnico 3</option>
-              <option value="tecnico 4">nombre de tecnico 4</option>
-              <option value="tecnico 5">nombre de tecnico 5</option>
-              <option value="tecnico 6">nombre de tecnico 6</option>
-            </select>
-          </div>
-          <hr />
-          <div class="form-group">
-            <label for="calidad-tiempo">Tiempo de Resolución (1-10):</label>
-            <select name="calidad-tiempo" id="calidad-tiempo" required>
-              <option value="10">10</option>
-              <option value="9">9</option>
-              <option value="8">8</option>
-              <option value="7">7</option>
-              <option value="6">6</option>
-              <option value="5">5</option>
-              <option value="4">4</option>
-              <option value="3">3</option>
-              <option value="2">2</option>
-              <option value="1">1</option>
-            </select>
+          <div class="container-tkt-tecnico">
+            <div class="form-group" id="container-tkt">
+              <label for="ticket">N° Ticket: (opcional)</label>
+              <input type="text" id="ticket" name="ticket" />
+            </div>
+
+            <div class="form-group" id="container-tecnico">
+              <label for="tecnico">Técnico que intervino:</label>
+              <select name="tecnico" id="tecnico" required>
+                <option value="tecnico 1">nombre de tecnico 1</option>
+                <option value="tecnico 2">nombre de tecnico 2</option>
+                <option value="tecnico 3">nombre de tecnico 3</option>
+                <option value="tecnico 4">nombre de tecnico 4</option>
+                <option value="tecnico 5">nombre de tecnico 5</option>
+                <option value="tecnico 6">nombre de tecnico 6</option>
+              </select>
+            </div>
           </div>
 
-          <div class="form-group">
-            <label for="calidad-atencion">Calidad de Atención (1-10):</label>
-            <select name="calidad-atencion" id="calidad-atencion" required>
-              <option value="10">10</option>
-              <option value="9">9</option>
-              <option value="8">8</option>
-              <option value="7">7</option>
-              <option value="6">6</option>
-              <option value="5">5</option>
-              <option value="4">4</option>
-              <option value="3">3</option>
-              <option value="2">2</option>
-              <option value="1">1</option>
-            </select>
+          <hr />
+
+          <div class="container-test">
+            <div class="form-group" id="container-tiempo">
+              <label for="calidad-tiempo">Tiempo de Resolución (1-10):</label>
+              <select name="calidad-tiempo" id="calidad-tiempo" required>
+                <option value="10">10</option>
+                <option value="9">9</option>
+                <option value="8">8</option>
+                <option value="7">7</option>
+                <option value="6">6</option>
+                <option value="5">5</option>
+                <option value="4">4</option>
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+              </select>
+            </div>
+
+            <div class="form-group" id="container-calidad">
+              <label for="calidad-atencion">Calidad de Atención (1-10):</label>
+              <select name="calidad-atencion" id="calidad-atencion" required>
+                <option value="10">10</option>
+                <option value="9">9</option>
+                <option value="8">8</option>
+                <option value="7">7</option>
+                <option value="6">6</option>
+                <option value="5">5</option>
+                <option value="4">4</option>
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+              </select>
+            </div>
           </div>
+
           <hr />
           <div class="form-group comentarios">
             <label for="comentario">Comentarios: (opcional)</label>
@@ -112,7 +128,8 @@
         </form>
       </section>
     </div>
-    <footer>Instituto Nacional de Tecnologia Agropecuaria</footer>
+    <footer>Empresa X s.a ©Todos los derechos reservados</footer>
+
     <script src="./main.js"></script>
   </body>
 </html>
