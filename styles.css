@@ -62,10 +62,10 @@ header img:hover {
 
 .formulario {
   background-image: url(./src/img/background1.jpg);
-  background-color: rgba(210, 232, 248, 0.753);
+  background-color: rgba(217, 238, 243, 0.877);
   border-radius: 20px;
   text-align: center;
-  font-family: bebas neue;
+  font-family: handjet;
   font-size: 25px;
   padding: 30px;
   border: 2px solid #0ebdd4c0;
