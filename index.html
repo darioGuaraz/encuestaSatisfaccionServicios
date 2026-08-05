@@ -1,134 +1,334 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#05070d" />
+    <meta
+      name="description"
+      content="Encuesta de satisfacción del servicio de asistencia IT de Empresa X."
+    />
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="styles.css" />
-    <!--FUENTES-->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Bebas+Neue&family=Handjet:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
-    <title>Encuesta Satisfaccion</title>
+    <title>Encuesta de Satisfacción · Soporte IT</title>
   </head>
   <body>
-    <header>
+    <div class="bg-decor" aria-hidden="true"></div>
+
+    <header class="site-header" id="siteHeader">
       <div class="container-header">
         <div class="container-img">
-          <img src="./src/img/logo.png" alt="Logo" />
+          <img src="./src/img/logo.svg" alt="Logo de Empresa X" />
         </div>
         <div class="container-titulo">
-          <h1>Encuesta de satisfacción de servicio de asistencia IT</h1>
+          <p class="eyebrow">Soporte &amp; Asistencia IT</p>
+          <h1>Encuesta de satisfacción del servicio</h1>
         </div>
       </div>
     </header>
 
-    <div class="block-formulario">
-      <section class="formulario">
+    <main class="block-formulario">
+      <section class="formulario" aria-labelledby="form-title">
+        <div class="formulario-intro">
+          <h2 id="form-title">Contanos tu experiencia</h2>
+          <p>
+            Tu opinión nos ayuda a mejorar la calidad de nuestra atención.
+            Completar la encuesta lleva menos de un minuto.
+          </p>
+        </div>
+
         <form action="main.php" method="post">
-          <div class="form-group">
-            <label for="usuario">Usuario: (opcional)</label>
-            <input type="text" id="usuario" name="usuario" />
-          </div>
-          <hr />
-          <div class="form-group">
-            <label for="pertenencia">Dependencia:</label>
-            <select name="pertenencia" id="pertenencia" required>
-              <option value="MKT">Marketing</option>
-              <option value="RRHH">Recursos Humanos</option>
-              <option value="FIN">Finanzas</option>
-              <option value="ING">Ingeniería</option>
-              <option value="OPS">Operaciones</option>
-              <option value="TI">Tecnología de la Información</option>
-              <option value="I+D">Investigación y Desarrollo</option>
-              <option value="CAL">Calidad</option>
-              <option value="VENTAS">Ventas</option>
-              <option value="RRPP">Relaciones Públicas</option>
-              <option value="LOG">Logística</option>
-              <option value="ADM">Administración</option>
-              <option value="ATC">Atención al Cliente</option>
-              <option value="LEGAL">Legal</option>
-              <option value="SEG">Seguridad</option>
-              <option value="PROD">Producción</option>
-              <option value="CAP">Capacitación</option>
-            </select>
-          </div>
-          <hr />
-          <div class="container-tkt-tecnico">
-            <div class="form-group" id="container-tkt">
-              <label for="ticket">N° Ticket: (opcional)</label>
-              <input type="text" id="ticket" name="ticket" />
+          <fieldset class="fieldset">
+            <legend>Datos generales</legend>
+            <div class="grid-2">
+              <div class="form-group">
+                <label for="usuario"
+                  >Usuario <span class="tag-optional">opcional</span></label
+                >
+                <input
+                  type="text"
+                  id="usuario"
+                  name="usuario"
+                  autocomplete="username"
+                  placeholder="Tu nombre de usuario"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="pertenencia"
+                  >Dependencia <span class="tag-required">*</span></label
+                >
+                <div class="select-wrap">
+                  <select name="pertenencia" id="pertenencia" required>
+                    <option value="" disabled selected>
+                      Seleccioná un área
+                    </option>
+                    <option value="MKT">Marketing</option>
+                    <option value="RRHH">Recursos Humanos</option>
+                    <option value="FIN">Finanzas</option>
+                    <option value="ING">Ingeniería</option>
+                    <option value="OPS">Operaciones</option>
+                    <option value="TI">Tecnología de la Información</option>
+                    <option value="I+D">Investigación y Desarrollo</option>
+                    <option value="CAL">Calidad</option>
+                    <option value="VENTAS">Ventas</option>
+                    <option value="RRPP">Relaciones Públicas</option>
+                    <option value="LOG">Logística</option>
+                    <option value="ADM">Administración</option>
+                    <option value="ATC">Atención al Cliente</option>
+                    <option value="LEGAL">Legal</option>
+                    <option value="SEG">Seguridad</option>
+                    <option value="PROD">Producción</option>
+                    <option value="CAP">Capacitación</option>
+                  </select>
+                </div>
+              </div>
             </div>
+          </fieldset>
 
-            <div class="form-group" id="container-tecnico">
-              <label for="tecnico">Técnico que intervino:</label>
-              <select name="tecnico" id="tecnico" required>
-                <option value="tecnico 1">nombre de tecnico 1</option>
-                <option value="tecnico 2">nombre de tecnico 2</option>
-                <option value="tecnico 3">nombre de tecnico 3</option>
-                <option value="tecnico 4">nombre de tecnico 4</option>
-                <option value="tecnico 5">nombre de tecnico 5</option>
-                <option value="tecnico 6">nombre de tecnico 6</option>
-              </select>
+          <fieldset class="fieldset">
+            <legend>Detalle del ticket</legend>
+            <div class="grid-2">
+              <div class="form-group">
+                <label for="ticket"
+                  >N° de Ticket
+                  <span class="tag-optional">opcional</span></label
+                >
+                <input
+                  type="text"
+                  id="ticket"
+                  name="ticket"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  placeholder="Ej: 10452"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="tecnico"
+                  >Técnico que intervino
+                  <span class="tag-required">*</span></label
+                >
+                <div class="select-wrap">
+                  <select name="tecnico" id="tecnico" required>
+                    <option value="" disabled selected>
+                      Seleccioná un técnico
+                    </option>
+                    <option value="tecnico 1">nombre de tecnico 1</option>
+                    <option value="tecnico 2">nombre de tecnico 2</option>
+                    <option value="tecnico 3">nombre de tecnico 3</option>
+                    <option value="tecnico 4">nombre de tecnico 4</option>
+                    <option value="tecnico 5">nombre de tecnico 5</option>
+                    <option value="tecnico 6">nombre de tecnico 6</option>
+                  </select>
+                </div>
+              </div>
             </div>
-          </div>
+          </fieldset>
 
-          <hr />
+          <fieldset class="fieldset">
+            <legend>Evaluación del servicio</legend>
 
-          <div class="container-test">
-            <div class="form-group" id="container-tiempo">
-              <label for="calidad-tiempo">Tiempo de Resolución (1-10):</label>
-              <select name="calidad-tiempo" id="calidad-tiempo" required>
-                <option value="10">10</option>
-                <option value="9">9</option>
-                <option value="8">8</option>
-                <option value="7">7</option>
-                <option value="6">6</option>
-                <option value="5">5</option>
-                <option value="4">4</option>
-                <option value="3">3</option>
-                <option value="2">2</option>
-                <option value="1">1</option>
-              </select>
+            <fieldset class="rating-group">
+              <legend class="rating-legend">
+                <span
+                  >Tiempo de resolución
+                  <span class="tag-required">*</span></span
+                >
+                <span
+                  class="rating-value"
+                  data-target="calidad-tiempo"
+                  aria-hidden="true"
+                  >Sin calificar</span
+                >
+              </legend>
+              <div class="rating-scale">
+                <input
+                  type="radio"
+                  id="tiempo-1"
+                  name="calidad-tiempo"
+                  value="1"
+                  required
+                /><label for="tiempo-1">1</label>
+                <input
+                  type="radio"
+                  id="tiempo-2"
+                  name="calidad-tiempo"
+                  value="2"
+                /><label for="tiempo-2">2</label>
+                <input
+                  type="radio"
+                  id="tiempo-3"
+                  name="calidad-tiempo"
+                  value="3"
+                /><label for="tiempo-3">3</label>
+                <input
+                  type="radio"
+                  id="tiempo-4"
+                  name="calidad-tiempo"
+                  value="4"
+                /><label for="tiempo-4">4</label>
+                <input
+                  type="radio"
+                  id="tiempo-5"
+                  name="calidad-tiempo"
+                  value="5"
+                /><label for="tiempo-5">5</label>
+                <input
+                  type="radio"
+                  id="tiempo-6"
+                  name="calidad-tiempo"
+                  value="6"
+                /><label for="tiempo-6">6</label>
+                <input
+                  type="radio"
+                  id="tiempo-7"
+                  name="calidad-tiempo"
+                  value="7"
+                /><label for="tiempo-7">7</label>
+                <input
+                  type="radio"
+                  id="tiempo-8"
+                  name="calidad-tiempo"
+                  value="8"
+                /><label for="tiempo-8">8</label>
+                <input
+                  type="radio"
+                  id="tiempo-9"
+                  name="calidad-tiempo"
+                  value="9"
+                /><label for="tiempo-9">9</label>
+                <input
+                  type="radio"
+                  id="tiempo-10"
+                  name="calidad-tiempo"
+                  value="10"
+                /><label for="tiempo-10">10</label>
+              </div>
+              <div class="rating-hints">
+                <span>Muy lento</span>
+                <span>Muy rápido</span>
+              </div>
+            </fieldset>
+
+            <fieldset class="rating-group">
+              <legend class="rating-legend">
+                <span
+                  >Calidad de atención <span class="tag-required">*</span></span
+                >
+                <span
+                  class="rating-value"
+                  data-target="calidad-atencion"
+                  aria-hidden="true"
+                  >Sin calificar</span
+                >
+              </legend>
+              <div class="rating-scale">
+                <input
+                  type="radio"
+                  id="atencion-1"
+                  name="calidad-atencion"
+                  value="1"
+                  required
+                /><label for="atencion-1">1</label>
+                <input
+                  type="radio"
+                  id="atencion-2"
+                  name="calidad-atencion"
+                  value="2"
+                /><label for="atencion-2">2</label>
+                <input
+                  type="radio"
+                  id="atencion-3"
+                  name="calidad-atencion"
+                  value="3"
+                /><label for="atencion-3">3</label>
+                <input
+                  type="radio"
+                  id="atencion-4"
+                  name="calidad-atencion"
+                  value="4"
+                /><label for="atencion-4">4</label>
+                <input
+                  type="radio"
+                  id="atencion-5"
+                  name="calidad-atencion"
+                  value="5"
+                /><label for="atencion-5">5</label>
+                <input
+                  type="radio"
+                  id="atencion-6"
+                  name="calidad-atencion"
+                  value="6"
+                /><label for="atencion-6">6</label>
+                <input
+                  type="radio"
+                  id="atencion-7"
+                  name="calidad-atencion"
+                  value="7"
+                /><label for="atencion-7">7</label>
+                <input
+                  type="radio"
+                  id="atencion-8"
+                  name="calidad-atencion"
+                  value="8"
+                /><label for="atencion-8">8</label>
+                <input
+                  type="radio"
+                  id="atencion-9"
+                  name="calidad-atencion"
+                  value="9"
+                /><label for="atencion-9">9</label>
+                <input
+                  type="radio"
+                  id="atencion-10"
+                  name="calidad-atencion"
+                  value="10"
+                /><label for="atencion-10">10</label>
+              </div>
+              <div class="rating-hints">
+                <span>Muy insatisfecho</span>
+                <span>Muy satisfecho</span>
+              </div>
+            </fieldset>
+          </fieldset>
+
+          <fieldset class="fieldset">
+            <legend>Comentarios</legend>
+            <div class="form-group comentarios">
+              <label for="comentario"
+                >¿Algo más que quieras contarnos?
+                <span class="tag-optional">opcional</span></label
+              >
+              <textarea
+                id="comentario"
+                name="comentario"
+                rows="3"
+                placeholder="Sugerencias, felicitaciones o reclamos..."
+              ></textarea>
             </div>
+          </fieldset>
 
-            <div class="form-group" id="container-calidad">
-              <label for="calidad-atencion">Calidad de Atención (1-10):</label>
-              <select name="calidad-atencion" id="calidad-atencion" required>
-                <option value="10">10</option>
-                <option value="9">9</option>
-                <option value="8">8</option>
-                <option value="7">7</option>
-                <option value="6">6</option>
-                <option value="5">5</option>
-                <option value="4">4</option>
-                <option value="3">3</option>
-                <option value="2">2</option>
-                <option value="1">1</option>
-              </select>
-            </div>
-          </div>
-
-          <hr />
-          <div class="form-group comentarios">
-            <label for="comentario">Comentarios: (opcional)</label>
-            <textarea id="comentario" name="comentario"></textarea>
-          </div>
           <div class="boton-container">
-            <input type="submit" class="boton" value="Enviar" />
+            <button type="submit" class="boton">Enviar encuesta</button>
           </div>
         </form>
       </section>
-    </div>
-    <footer>Empresa X s.a ©Todos los derechos reservados</footer>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        © <span id="year"></span> Empresa X S.A. — Todos los derechos reservados
+      </p>
+    </footer>
 
     <script src="./main.js"></script>
   </body>

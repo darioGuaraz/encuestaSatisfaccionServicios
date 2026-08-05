@@ -1,170 +1,528 @@
-/*fonts*/
+/* ==========================================================================
+   Encuesta de Satisfacción — Design tokens
+   ========================================================================== */
+:root {
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+  --bg-deep: #05070d;
+  --bg-deep-2: #0a1128;
+  --accent: #22d3ee;
+  --accent-2: #6366f1;
+  --accent-gradient: linear-gradient(135deg, #22d3ee, #6366f1);
+
+  --surface: #ffffff;
+  --surface-soft: #f4f7fb;
+  --border: #e1e7f0;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --text-inverse: #e6f1f8;
+  --text-inverse-muted: #93a4c3;
+  --danger: #ef4444;
+
+  --radius-lg: 20px;
+  --radius-md: 12px;
+  --radius-sm: 10px;
+
+  --shadow-lg: 0 24px 60px -20px rgba(2, 10, 30, 0.55);
+  --shadow-sm: 0 2px 10px rgba(2, 10, 30, 0.35);
+
+  --transition: 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   Reset & base
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
-  background-image: url(./src/img/funda4.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-sans);
+  color: var(--text);
+  background: var(--bg-deep);
+  position: relative;
 }
 
-/* Ajusta el CSS del header */
-header {
-  background-color: #0b4763;
-  padding: 10px;
-  transition: transform 0.3s ease, padding 0.3s ease; /* Añadido transform a la transición */
-  transform: translateY(0); /* Estado inicial */
+/* Decorative ambient background: soft glow + faint circuit grid.
+   Kept as a fixed layer so scrolling the form doesn't move it. */
+.bg-decor {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(
+      600px 400px at 15% 10%,
+      rgba(34, 211, 238, 0.16),
+      transparent 60%
+    ),
+    radial-gradient(
+      700px 500px at 85% 90%,
+      rgba(99, 102, 241, 0.18),
+      transparent 60%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(148, 197, 219, 0.06) 0 1px,
+      transparent 1px 56px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(148, 197, 219, 0.06) 0 1px,
+      transparent 1px 56px
+    ),
+    linear-gradient(180deg, var(--bg-deep-2), var(--bg-deep) 70%);
 }
 
-header.shrink {
-  transform: translateY(
-    -60px
-  ); /* Ajusta el valor según la altura que quieras ocultar */
-  padding: 5px; /* Puedes ajustar este padding si es necesario */
-}
-
-header img {
+img {
   max-width: 100%;
-  border-radius: 700px; /* Opcional: para bordes redondeados */
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Ajusta el difuminado según tu preferencia */
-  transition: box-shadow 0.3s ease; /* Para un efecto suave al pasar el ratón */
+  display: block;
 }
 
-header img:hover {
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.7); /* Efecto al pasar el ratón, opcional */
+/* ==========================================================================
+   Header
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(5, 7, 13, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition:
+    padding var(--transition),
+    box-shadow var(--transition);
+}
+
+.site-header.shrink {
+  box-shadow: var(--shadow-sm);
+}
+
+.site-header.shrink .container-header {
+  padding-block: 0.55rem;
+}
+
+.site-header.shrink .container-img img {
+  height: 32px;
 }
 
 .container-header {
+  max-width: 1100px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1.25rem;
+  transition: padding var(--transition);
 }
 .container-img {
-  flex: 30%;
+  width: 4rem;
+
+  overflow: hidden;
 }
+
+.container-img img {
+  height: 44px;
+  width: auto;
+  border-radius: 8px;
+
+  transition: height var(--transition);
+}
+
 .container-titulo {
-  flex: 70%;
+  min-width: 0;
+}
+
+.eyebrow {
+  margin: 0 0 0.15rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
 .container-titulo h1 {
-  font-family: Bebas Neue;
-  color: rgb(60, 148, 207);
-  text-align: center;
-  font-size: 5vw;
-  margin: 2px;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.616);
+  margin: 0;
+  font-weight: 800;
+  line-height: 1.25;
+  font-size: clamp(1.05rem, 1vw + 0.85rem, 1.5rem);
+  color: #fff;
 }
 
+/* ==========================================================================
+   Main / card
+   ========================================================================== */
 .block-formulario {
+  flex: 1 0 auto;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 20px;
+  padding: clamp(1.5rem, 4vw, 3rem) 1rem;
 }
 
 .formulario {
-  background-image: url(./src/img/background1.jpg);
-  background-color: rgba(217, 238, 243, 0.877);
-  border-radius: 20px;
-  text-align: center;
-  font-family: handjet;
-  font-size: 25px;
-  padding: 30px;
-  border: 2px solid #0ebdd4c0;
+  position: relative;
+  background: var(--surface);
+  color: var(--text);
   width: 100%;
-  max-width: 800px; /* Ajusta este valor según tus preferencias */
-  box-sizing: border-box;
-  margin: 0 auto; /* Centra el formulario en la pantalla */
-}
-label {
-  color: rgb(185, 11, 11);
+  max-width: 760px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+  overflow: hidden;
 }
 
-.container-tkt-tecnico,
-.container-test {
+.formulario::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: var(--accent-gradient);
+}
+
+.formulario-intro h2 {
+  margin: 0 0 0.35rem;
+  font-size: clamp(1.2rem, 1vw + 1rem, 1.5rem);
+  font-weight: 800;
+}
+
+.formulario-intro p {
+  margin: 0 0 1.85rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   Form structure
+   ========================================================================== */
+form {
+  text-align: left;
+}
+
+.fieldset {
+  border: none;
+  margin: 0 0 1.85rem;
+  padding: 0;
+}
+
+.fieldset:last-of-type {
+  margin-bottom: 0;
+}
+
+.fieldset > legend {
+  padding: 0 0 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--accent-2);
   display: flex;
-  flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas más pequeñas */
-  gap: 10px; /* Espacio entre los elementos */
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.fieldset > legend::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-gradient);
+  flex-shrink: 0;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 560px) {
+  .grid-2 {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .form-group {
-  margin-bottom: 15px;
-  text-align: left;
-  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-group label {
-  display: block;
-  margin-bottom: 5px;
-  color: rgb(88, 86, 86);
-  font-size: 1.1em;
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin-bottom: 0.45rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text);
 }
 
-.form-group input,
+.tag-optional {
+  font-weight: 400;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.tag-required {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+/* Inputs, selects, textarea
+   Font-size kept at 16px minimum to prevent iOS Safari auto-zoom on focus. */
+.form-group input[type='text'],
 .form-group textarea,
-.form-group select {
-  width: 100%; /* Ajusta el ancho al contenedor */
-  padding: 10px;
-  border-radius: 20px;
-  border: 1px solid #09b3d1;
-  font-size: 1em;
-  box-sizing: border-box;
+select {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--surface-soft);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 0.7rem 0.9rem;
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition),
+    background var(--transition);
+}
+
+.form-group input[type='text']::placeholder,
+.form-group textarea::placeholder {
+  color: #9aa5b8;
+}
+
+.form-group input[type='text']:hover,
+.form-group textarea:hover,
+select:hover {
+  border-color: #c7d2e0;
+}
+
+.form-group input[type='text']:focus,
+.form-group textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--surface);
+  box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.16);
+}
+
+.select-wrap {
+  position: relative;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 2.5rem;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'><path d='M5 7.5L10 12.5L15 7.5' stroke='%2364748b' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
 }
 
 textarea {
-  border-radius: 10px;
-  height: auto; /* Para que el alto se ajuste automáticamente */
-  max-height: 300px; /* Ajusta el valor según tus necesidades */
-  overflow: hidden; /* Oculta el scrollbar si el contenido excede el tamaño */
-  resize: none; /* Desactiva el redimensionamiento manual */
+  min-height: 90px;
+  max-height: 320px;
+  resize: vertical;
+  font-family: var(--font-sans);
+  line-height: 1.5;
 }
 
+/* ==========================================================================
+   Rating scale (1-10)
+   ========================================================================== */
+.rating-group {
+  border: none;
+  padding: 0;
+  margin: 0 0 1.6rem;
+}
+
+.rating-group:last-child {
+  margin-bottom: 0;
+}
+
+.rating-legend {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0 0 0.7rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.rating-value {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent-2);
+  background: rgba(99, 102, 241, 0.1);
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.rating-scale {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+}
+
+@media (min-width: 560px) {
+  .rating-scale {
+    grid-template-columns: repeat(10, 1fr);
+    gap: 0.4rem;
+  }
+}
+
+.rating-scale input[type='radio'] {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.rating-scale label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--surface-soft);
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  user-select: none;
+  transition: all var(--transition);
+}
+
+.rating-scale label:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.rating-scale input[type='radio']:checked + label {
+  background: var(--accent-gradient);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 8px 18px -6px rgba(99, 102, 241, 0.55);
+  transform: translateY(-1px);
+}
+
+.rating-scale input[type='radio']:focus-visible + label {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 2px;
+}
+
+.rating-hints {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   Submit button
+   ========================================================================== */
 .boton-container {
-  text-align: center;
-  margin-top: 20px;
+  margin-top: 2.25rem;
+  display: flex;
+  justify-content: center;
 }
 
 .boton {
-  background-color: rgb(13, 184, 236);
-  color: rgb(255, 255, 255);
-  font-size: large;
-  height: 50px;
-  width: 150px;
-  border-radius: 25px;
+  appearance: none;
+  border: none;
   cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1rem;
+  color: #fff;
+  background: var(--accent-gradient);
+  padding: 0.9rem 2.75rem;
+  border-radius: 999px;
+  box-shadow: 0 14px 28px -10px rgba(99, 102, 241, 0.55);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+  width: 100%;
+  max-width: 320px;
 }
 
-footer {
-  background-color: rgba(2, 32, 66, 0.699);
-  font-family: "Roboto", sans-serif;
-  color: aliceblue;
-  padding: 10px;
+.boton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 32px -8px rgba(99, 102, 241, 0.6);
+}
+
+.boton:active {
+  transform: translateY(0);
+}
+
+.boton:focus-visible {
+  outline: 3px solid var(--accent-2);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer {
+  flex-shrink: 0;
   text-align: center;
-  margin-top: 20px;
+  padding: 1.1rem 1rem;
+  font-size: 0.8rem;
+  color: var(--text-inverse-muted);
+  background: rgba(5, 7, 13, 0.85);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-input,
-option {
-  font-size: 22px;
+.site-footer p {
+  margin: 0;
 }
 
-@media (max-width: 600px) {
-  .formulario {
-    padding: 10px;
-    max-width: 100%; /* Asegura que el formulario se ajuste completamente en pantallas pequeñas */
+/* ==========================================================================
+   Small screens
+   ========================================================================== */
+@media (max-width: 420px) {
+  .container-header {
+    gap: 0.75rem;
   }
 
-  .form-group label {
-    font-size: 1em;
+  .container-img img {
+    height: 36px;
   }
 
-  .form-group input,
-  .form-group textarea,
-  .form-group select {
-    font-size: 0.9em;
+  .eyebrow {
+    font-size: 0.62rem;
   }
+}
 
-  .boton {
-    font-size: medium;
-    height: 40px;
-    width: 120px;
+/* ==========================================================================
+   Reduced motion
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.001ms !important;
+    animation-duration: 0.001ms !important;
   }
 }
